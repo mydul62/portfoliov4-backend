@@ -16,7 +16,6 @@ router.post('/login', AuthController.logingUser);
 router.post('/refesh-token', AuthController.refeshToken);
 router.post(
   '/cheange-password',
-  auth(Role.USER, Role.ADMIN),
   AuthController.cheangePassword
 );
 
