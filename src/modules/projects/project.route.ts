@@ -19,5 +19,8 @@ router.get(
   '/',
   ProjectController.GetAllProject
 )
-
+router.delete(
+  '/:id',
+  ProjectController.DeleteProject
+)
 export const ProjectRoute = router;

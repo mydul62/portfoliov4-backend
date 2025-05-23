@@ -3,6 +3,7 @@ import prisma from "../../app/shared/prisma"
 
 const CreateProjectInDb = async (req:any)=>{
 const file = req.file
+console.log(file)
  if(file){
  req.body.frontImage =file.path;
  }
@@ -20,7 +21,17 @@ const GetAllProjectsFromDB = async ()=>{
 return result;
 }
 
+const DeletelProjectsFromDB = async (id:string)=>{
+  const result =await prisma.project.delete({
+  where:{
+    id
+  }
+  })
+return result;
+}
+
 export const   ProjectService  ={
 CreateProjectInDb,
-GetAllProjectsFromDB
+GetAllProjectsFromDB,
+DeletelProjectsFromDB
 }
